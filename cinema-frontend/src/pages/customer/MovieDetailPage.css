@@ -1,0 +1,184 @@
+.movie-detail-page {
+  background: #111217;
+  color: #f7f5ef;
+}
+
+.movie-detail-shell {
+  width: min(calc(100% - 128px), 1312px);
+  margin-inline: auto;
+  padding-block: 28px 48px;
+}
+
+.movie-detail-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-block-end: 18px;
+  color: #a6a8b5;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.movie-detail-back {
+  color: #f7c85a;
+  text-decoration: none;
+}
+
+.movie-detail-back:hover {
+  text-decoration: underline;
+}
+
+.movie-detail-grid {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 188px minmax(0, 1fr);
+  align-items: start;
+  gap: 32px;
+  min-height: 327px;
+  padding: 23px 32px 32px;
+  border-radius: 19px;
+  background:
+    linear-gradient(90deg, rgb(17 18 23 / 66%), rgb(17 18 23 / 76%)),
+    #21191a url('./cinespot-detail-backdrop.jpg') center / cover no-repeat;
+  font-family: 'DejaVu Sans', system-ui, sans-serif;
+}
+
+.movie-detail-poster {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 188 / 272;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #191b23;
+}
+
+.movie-detail-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-detail-poster span {
+  padding: 12px;
+  color: #a6a8b5;
+  font-size: 13px;
+  text-align: center;
+}
+
+.movie-detail-info {
+  min-width: 0;
+  padding-block-start: 7px;
+  overflow-wrap: anywhere;
+}
+
+.movie-detail-status {
+  margin: 0 0 8px;
+  color: #f7c85a;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.movie-detail-info h1 {
+  margin: 0;
+  color: #f7f5ef;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 800;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.movie-detail-meta {
+  margin: 12px 0 0;
+  color: #f0d8c4;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.movie-detail-description {
+  max-width: 66ch;
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.movie-detail-release {
+  margin: 18px 0 0;
+  color: #f0d8c4;
+  font-size: 14px;
+}
+
+.movie-detail-release time {
+  margin-inline-start: 6px;
+  color: #f7f5ef;
+}
+
+.movie-detail-trailer {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block-start: 16px;
+  padding: 8px 16px;
+  border: 1px solid #f7c85a;
+  border-radius: 9px;
+  color: #f7c85a;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.movie-detail-trailer:hover {
+  background: #f7c85a;
+  color: #111217;
+}
+
+.movie-detail-page a:focus-visible {
+  outline: 2px solid #f7f5ef;
+  outline-offset: 3px;
+}
+
+.movie-detail-message {
+  margin: 0;
+  padding: 20px;
+  border-radius: 9px;
+  background: #191b23;
+  font-size: 16px;
+}
+
+@media (max-width: 760px) {
+  .movie-detail-shell {
+    width: calc(100% - 32px);
+    padding-block: 20px 32px;
+  }
+
+  .movie-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    min-height: auto;
+    padding: 20px 18px 24px;
+    border-radius: 13px;
+  }
+
+  .movie-detail-poster {
+    width: min(148px, 100%);
+    justify-self: center;
+  }
+
+  .movie-detail-info {
+    padding-block-start: 0;
+  }
+
+  .movie-detail-info h1 {
+    font-size: 30px;
+  }
+
+  .movie-detail-meta,
+  .movie-detail-description {
+    font-size: 15px;
+  }
+}

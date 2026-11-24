@@ -1,0 +1,160 @@
+.cinespot-home > .home-shell.home-shell-template {
+  box-sizing: border-box;
+  width: min(calc(100% - 128px), 1312px);
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+  padding-block-start: 24px;
+}
+
+.cinespot-featured {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-height: 449px;
+  margin-block-end: 36px;
+  padding: 40px;
+  border-radius: 19px;
+  color: #f7f5ef;
+  background: #33231e url('./cinespot-home-hero.jpg') center / cover no-repeat;
+  font-family: 'DejaVu Sans', system-ui, sans-serif;
+}
+
+.cinespot-featured-content {
+  width: min(100%, 610px);
+  min-width: 0;
+}
+
+.cinespot-featured-badge {
+  display: grid;
+  place-items: center;
+  width: 153px;
+  min-height: 25px;
+  margin: 0 0 24px;
+  border-radius: 6px;
+  background: #f7c85a;
+  color: #111218;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cinespot-featured h1 {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(37px, 4.6vw, 66px);
+  font-weight: 800;
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.cinespot-featured-meta {
+  margin: 18px 0 0;
+  color: #f0d8c4;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.cinespot-featured-description {
+  display: -webkit-box;
+  max-width: 52ch;
+  margin: 12px 0 0;
+  overflow: hidden;
+  color: inherit;
+  font-size: 17px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.cinespot-featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-block-start: 36px;
+}
+
+.cinespot-featured-actions a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.cinespot-featured-actions a:focus-visible {
+  outline: 2px solid #f7f5ef;
+  outline-offset: 3px;
+}
+
+.cinespot-featured-actions .cinespot-featured-book {
+  width: 175px;
+  background: #f7c85a;
+  color: #111218;
+}
+
+.cinespot-featured-actions .cinespot-featured-details {
+  width: 148px;
+  border-color: #2b2d38;
+  background: #191b23;
+  color: #f7f5ef;
+}
+
+@media (max-width: 760px) {
+  .cinespot-home > .home-shell.home-shell-template {
+    width: calc(100% - 32px);
+    padding-block-start: 18px;
+  }
+
+  .cinespot-featured {
+    min-height: 346px;
+    margin-block-end: 30px;
+    padding: 26px 18px;
+    border-radius: 13px;
+    background-image:
+      linear-gradient(90deg, rgb(17 18 23 / 54%), rgb(17 18 23 / 10%)),
+      url('./cinespot-home-hero.jpg');
+  }
+
+  .cinespot-featured-badge {
+    width: 118px;
+    margin-block-end: 20px;
+  }
+
+  .cinespot-featured h1 {
+    font-size: 37px;
+  }
+
+  .cinespot-featured-meta {
+    margin-block-start: 14px;
+    font-size: 13px;
+  }
+
+  .cinespot-featured-description {
+    margin-block-start: 12px;
+    font-size: 13px;
+    -webkit-line-clamp: 3;
+  }
+
+  .cinespot-featured-actions {
+    margin-block-start: 26px;
+  }
+
+  .cinespot-featured-actions .cinespot-featured-book {
+    width: 150px;
+  }
+
+  .cinespot-featured-actions .cinespot-featured-details {
+    display: none;
+  }
+}

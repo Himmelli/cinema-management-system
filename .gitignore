@@ -1,0 +1,9 @@
+/cinema-backend/uploads/posters/*
+!/cinema-backend/uploads/posters/.gitkeep
+.idea/
+node_modules/
+dist/
+target/
+.env
+.env.*
+!.env.example

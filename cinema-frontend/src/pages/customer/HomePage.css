@@ -1,0 +1,315 @@
+.cinespot-home {
+  box-sizing: border-box;
+  min-height: calc(100vh - 4.25rem);
+  padding: 0 var(--customer-gutter) 4rem;
+  background:
+    radial-gradient(ellipse at 35% 0%, #392818, transparent 48rem),
+    #101113;
+  color: #fafafa;
+  text-align: left;
+}
+
+.home-shell {
+  width: min(100%, var(--customer-width));
+  margin-inline: auto;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 17rem);
+  align-items: center;
+  gap: clamp(1.5rem, 6vw, 5rem);
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+.home-hero h1 {
+  max-width: 16ch;
+  margin: 0.4rem 0 0;
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  overflow-wrap: anywhere;
+}
+
+.home-hero-rating {
+  margin: 0;
+  color: #facc15;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.home-hero-meta,
+.home-hero-description,
+.home-message,
+.home-search-summary,
+.home-movie-card p {
+  color: #ded8ce;
+}
+
+.home-hero-description {
+  max-width: 60ch;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+}
+
+.home-book-link,
+.home-trailer-link,
+.home-card-book {
+  display: inline-block;
+  padding: 0.625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-book-link {
+  background: #facc15;
+  color: #171717;
+}
+
+.home-trailer-link {
+  border-color: #8d7e66;
+  color: #fff;
+}
+
+.home-book-link:hover {
+  background: #fde047;
+}
+
+.home-trailer-link:hover,
+.home-search-summary a,
+.home-movie-link:hover h3 {
+  color: #facc15;
+}
+
+.home-now-showing {
+  padding-top: 1.75rem;
+  border-top: 1px solid #393029;
+}
+
+.home-now-showing :is(h1, h2) {
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+.home-movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.home-movie-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.home-poster {
+  position: relative;
+  display: grid;
+  aspect-ratio: 2 / 3;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #272930;
+  color: #e4e4e7;
+  text-align: center;
+}
+
+.home-poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-poster span {
+  padding: 0.75rem;
+}
+
+.home-hero .home-poster {
+  box-shadow: 0 1rem 2.5rem #0008;
+}
+
+.home-movie-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-movie-card h3 {
+  margin: 0.7rem 0 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.home-movie-card p {
+  margin: 0.35rem 0 0.65rem;
+  font-size: 0.875rem;
+}
+
+.home-card-book {
+  box-sizing: border-box;
+  width: 100%;
+  background: #242630;
+  color: #fff;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.home-card-book:hover {
+  background: #353843;
+}
+
+.cinespot-home a:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-hero .home-poster {
+    width: min(100%, 12rem);
+  }
+
+  .home-movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+    gap: 0.875rem;
+  }
+}
+
+.cinespot-featured-title {
+  margin: 0 0 12px;
+  max-inline-size: 22ch;
+  font-size: clamp(2.125rem, 4.4vw, 4rem);
+  font-weight: 800;
+  line-height: 1.06;
+  overflow-wrap: anywhere;
+}
+
+.cinespot-featured-description {
+  margin: 0;
+  max-inline-size: 52ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.cinespot-featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: center;
+  margin-block-start: 20px;
+}
+
+@media (max-width: 600px) {
+  .cinespot-featured-title {
+    margin-block-end: 10px;
+  }
+
+  .cinespot-featured-description {
+    font-size: 0.9375rem;
+  }
+
+  .cinespot-featured-actions {
+    margin-block-start: 16px;
+  }
+}
+
+.cinespot-home .home-shell-template .home-now-showing h2 {
+  margin: 0 0 20px;
+  color: #f7f5ef;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.cinespot-home .home-shell-template .home-movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.cinespot-home .home-shell-template .home-movie-card {
+  min-width: 0;
+}
+
+.cinespot-home .home-shell-template .home-movie-link {
+  display: block;
+}
+
+.cinespot-home .home-shell-template .home-poster {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 244 / 225;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #191b23;
+}
+
+.cinespot-home .home-shell-template .home-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cinespot-home .home-shell-template .home-movie-card h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.cinespot-home .home-shell-template .home-movie-card > p {
+  margin: 4px 0 10px;
+  color: #a6a8b5;
+  font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .cinespot-home .home-shell-template .home-movie-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cinespot-home .home-shell-template .home-now-showing h2 {
+    font-size: 24px;
+  }
+
+  .cinespot-home .home-shell-template .home-movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+  }
+
+  .cinespot-home .home-shell-template .home-poster {
+    aspect-ratio: 171 / 173;
+  }
+
+  .cinespot-home .home-shell-template .home-movie-card h3 {
+    font-size: 14px;
+  }
+
+  .cinespot-home .home-shell-template .home-movie-card > p {
+    font-size: 12px;
+  }
+}

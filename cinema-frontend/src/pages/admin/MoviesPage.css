@@ -1,0 +1,138 @@
+.movies-page h1 {
+  margin: 0 0 24px;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.movies-panel {
+  min-width: 0;
+  padding: clamp(14px, 2vw, 24px);
+  border: 1px solid #e4e2dc;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.movies-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+}
+
+.movies-table-scroll {
+  overflow-x: auto;
+}
+
+.movies-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.movies-table th,
+.movies-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #ebe9e3;
+  vertical-align: top;
+}
+
+.movies-table thead {
+  background: #f7f6f1;
+}
+
+.movie-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #fff3c6;
+  color: #614711;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.movie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.movies-page button {
+  padding: 6px 10px;
+  border: 1px solid #d8d6cf;
+  border-radius: 8px;
+  background: #fff;
+  color: #191a1d;
+  font-size: 0.875rem;
+}
+
+.movies-page button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.movies-form-panel form {
+  margin-bottom: 16px;
+}
+
+.movies-form-panel fieldset {
+  min-width: 0;
+  margin: 0 0 12px;
+  padding: 10px;
+  border: 1px solid #e4e2dc;
+  border-radius: 8px;
+}
+
+.movies-form-panel fieldset > div {
+  margin-bottom: 10px;
+}
+
+.movies-form-panel input:not([type='checkbox']),
+.movies-form-panel textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 4px;
+  padding: 7px 8px;
+  border: 1px solid #d8d6cf;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.movies-form-panel button[type='submit'] {
+  margin-top: 8px;
+  border-color: #e2af2c;
+  background: #f5c445;
+  font-weight: 700;
+}
+
+.movie-delete-confirmation {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #ead0cc;
+  border-radius: 8px;
+  background: #fff7f6;
+}
+
+.movie-delete-confirmation p {
+  margin: 0 0 8px;
+}
+
+.movies-page .movie-delete-button {
+  border-color: #9e2920;
+  background: #9e2920;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
+  }
+}

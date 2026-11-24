@@ -1,0 +1,247 @@
+.rooms-page {
+  min-width: 0;
+  color: #171717;
+}
+
+.rooms-page h1 {
+  margin: 0 0 20px;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.rooms-page .rooms-panel {
+  min-width: 0;
+  padding: clamp(16px, 2vw, 24px);
+  border: 1px solid #e4e4e0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.rooms-page .rooms-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+}
+
+.rooms-page .rooms-table-wrapper {
+  overflow-x: auto;
+}
+
+.rooms-page .rooms-table {
+  width: 100%;
+  min-width: 500px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9375rem;
+}
+
+.rooms-page .rooms-table th,
+.rooms-page .rooms-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eaeae7;
+  vertical-align: middle;
+}
+
+.rooms-page .rooms-table thead th {
+  background: #f7f7f5;
+  color: #3d3d3a;
+}
+
+.rooms-page .rooms-table tbody th {
+  font-weight: 600;
+}
+
+.rooms-page .rooms-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.rooms-page [role="alert"] {
+  color: #a1211c;
+}
+
+.rooms-page .rooms-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.rooms-page .rooms-form {
+  display: grid;
+  gap: 16px;
+}
+
+.rooms-page .rooms-form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.rooms-page .rooms-form-field label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.rooms-page .rooms-form-field input,
+.rooms-page .rooms-form-field select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #d7d7d2;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+.rooms-page .rooms-form p {
+  margin: 0;
+}
+
+.rooms-page .rooms-form [role="status"] {
+  color: #246438;
+}
+
+.rooms-page .rooms-primary-button {
+  justify-self: start;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid #efc247;
+  border-radius: 8px;
+  background: #f6c84d;
+  color: #171717;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rooms-page .rooms-primary-button:hover:not(:disabled) {
+  background: #efbc32;
+}
+
+.rooms-page .rooms-primary-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.rooms-page .rooms-form :focus-visible {
+  outline: 2px solid #805b00;
+  outline-offset: 2px;
+}
+
+@media (min-width: 1200px) {
+  .rooms-page .rooms-grid {
+    grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr);
+  }
+}
+
+.rooms-page .rooms-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.rooms-page .rooms-form-field input[readonly] {
+  background: #f5f5f3;
+}
+
+.rooms-page .rooms-secondary-button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid #deded9;
+  border-radius: 8px;
+  background: #fff;
+  color: #171717;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rooms-page .rooms-secondary-button:hover:not(:disabled) {
+  background: #f5f5f3;
+}
+
+.rooms-page .rooms-secondary-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.rooms-page .rooms-secondary-button:focus-visible {
+  outline: 2px solid #805b00;
+  outline-offset: 2px;
+}
+
+.rooms-page .rooms-success {
+  margin: 0 0 12px;
+  color: #246438;
+}
+
+.rooms-page .rooms-delete-confirmation {
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid #efcf83;
+  border-radius: 8px;
+  background: #fff9e9;
+}
+
+.rooms-page .rooms-delete-confirmation h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.rooms-page .rooms-delete-confirmation p {
+  margin: 8px 0 12px;
+}
+
+.rooms-page .rooms-danger-button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid #a1211c;
+  border-radius: 8px;
+  background: #a1211c;
+  color: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rooms-page .rooms-danger-button:hover:not(:disabled) {
+  background: #861b17;
+}
+
+.rooms-page .rooms-danger-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.rooms-page .rooms-danger-button:focus-visible {
+  outline: 2px solid #805b00;
+  outline-offset: 2px;
+}
+
+.rooms-page .rooms-view-seats-link {
+  display: inline-flex;
+  box-sizing: border-box;
+  min-height: 36px;
+  align-items: center;
+  padding: 7px 12px;
+  border: 1px solid #efc247;
+  border-radius: 8px;
+  background: #fff8e5;
+  color: #171717;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rooms-page .rooms-view-seats-link:hover {
+  background: #f6c84d;
+}
+
+.rooms-page .rooms-view-seats-link:focus-visible {
+  outline: 2px solid #805b00;
+  outline-offset: 2px;
+}
