@@ -59,4 +59,8 @@ public class Seat {
     public String getStatus() {
         return status;
     }
+
+    public String getSeatType() {
+        return seatType;
+    }
 }

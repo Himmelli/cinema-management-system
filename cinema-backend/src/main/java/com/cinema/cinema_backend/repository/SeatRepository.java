@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Collection;
 
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
@@ -62,4 +63,6 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
             @Param("roomId") Long roomId,
             @Param("seatId") Long seatId
     );
+
+    List<Seat> findByRoom_IdAndIdInAndStatus(Long roomId, Collection<Long> seatIds, String status);
 }

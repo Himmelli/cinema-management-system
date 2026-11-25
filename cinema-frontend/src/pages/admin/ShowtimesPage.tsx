@@ -38,6 +38,39 @@ function displayDateTime(value: string) {
   return value.replace('T', ' ')
 }
 
+function formatStartTime(value: string) {
+  if (!value) return 'DD/MM/YYYY hh:mm AM/PM'
+
+  const [date, time] = value.split('T')
+  const [year, month, day] = date.split('-')
+  const [hour, minute] = time.split(':')
+  const hour24 = Number(hour)
+  const hour12 = String(hour24 % 12 || 12).padStart(2, '0')
+  return `${day}/${month}/${year} ${hour12}:${minute} ${hour24 < 12 ? 'AM' : 'PM'}`
+}
+
+function ShowtimeStartField() {
+  const [startTime, setStartTime] = useState('')
+
+  return (
+    <label>
+      Start time
+      <span className="showtimes-picker">
+        <span aria-hidden="true">{formatStartTime(startTime)}</span>
+        <span aria-hidden="true">▾</span>
+        <input
+          name="startTime"
+          type="datetime-local"
+          step={60}
+          value={startTime}
+          onChange={(event) => setStartTime(event.target.value)}
+          required
+        />
+      </span>
+    </label>
+  )
+}
+
 function getCreateError(error: unknown) {
   if (isAxiosError(error) && error.response?.status === 409) {
     return 'Could not schedule this showtime. Check the room, movie duration, and the 15-minute cleaning gap.'
@@ -110,7 +143,13 @@ export default function ShowtimesPage() {
 
     const form = event.currentTarget
     const values = new FormData(form)
+    const startTime = String(values.get('startTime') ?? '')
     const format = String(values.get('format') ?? '').trim()
+
+    if (!startTime) {
+      setSubmit({ status: 'error', message: 'Select a start date and time.' })
+      return
+    }
 
     if (!format) {
       setSubmit({ status: 'error', message: 'Format is required.' })
@@ -120,7 +159,7 @@ export default function ShowtimesPage() {
     const request = {
       movieId: Number(values.get('movieId')),
       roomId: Number(values.get('roomId')),
-      startTime: String(values.get('startTime')),
+      startTime,
       format,
     }
 
@@ -189,10 +228,7 @@ export default function ShowtimesPage() {
                 </select>
               </label>
 
-              <label>
-                Start time
-                <input name="startTime" type="datetime-local" step={60} required />
-              </label>
+              <ShowtimeStartField key={listVersion} />
 
               <label>
                 Format

@@ -53,4 +53,12 @@ public class Showtime {
     public Long getId() {
         return id;
     }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public String getFormat() {
+        return format;
+    }
 }

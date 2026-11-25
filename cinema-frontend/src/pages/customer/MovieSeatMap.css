@@ -1,0 +1,129 @@
+.movie-seat-map {
+  min-width: 0;
+  margin-block-start: 20px;
+  padding-block-start: 18px;
+  border-block-start: 1px solid #373945;
+}
+
+.movie-seat-map h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.movie-seat-map-screen {
+  width: min(100%, 460px);
+  margin: 0 auto 16px;
+  padding-block: 8px;
+  border-block-start: 3px solid #f7c85a;
+  border-radius: 50% 50% 0 0;
+  color: #f7cf72;
+  font-size: 14px;
+  text-align: center;
+}
+
+.movie-seat-map-scroll {
+  overflow-x: auto;
+  padding: 5px;
+}
+
+.movie-seat-map-scroll:focus-visible {
+  outline: 2px solid #f7c85a;
+  outline-offset: 2px;
+}
+
+.movie-seat-map-rows {
+  display: grid;
+  gap: 8px;
+  width: max-content;
+  margin-inline: auto;
+}
+
+.movie-seat-map-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-seat-map-row-label {
+  flex: 0 0 2.5rem;
+  color: #b7b9c6;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.movie-seat-map .movie-seat-map-seat {
+  min-width: 44px;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+.movie-seat-map .movie-seat-map-seat:disabled {
+  border-color: #454858;
+  background: #292b34;
+  color: #b7b9c6;
+  cursor: not-allowed;
+}
+
+.movie-seat-map-summary {
+  margin: 12px 0 4px;
+  color: #f7cf72;
+}
+
+.movie-seat-map-note {
+  margin: 0;
+  color: #b7b9c6;
+  font-size: 14px;
+}
+
+.movie-seat-map-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block-start: 12px;
+}
+
+.movie-seat-map-actions p,
+.movie-seat-map-hold-status {
+  margin: 0;
+}
+
+.movie-seat-map .movie-seat-map-hold-button {
+  padding-inline: 16px;
+  border-color: #f7c85a;
+  background: #f7c85a;
+  color: #111218;
+  font-weight: 700;
+}
+
+.movie-seat-map .movie-seat-map-hold-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.movie-seat-map-actions a,
+.movie-seat-map-hold-status {
+  color: #f7cf72;
+}
+
+.movie-seat-map-error {
+  margin: 12px 0 0;
+  color: #fecaca;
+}
+
+.movie-seat-map-booking {
+  margin-block-start: 12px;
+  padding: 12px 16px;
+  border: 1px solid #454858;
+  border-radius: 8px;
+  background: #222430;
+  overflow-wrap: anywhere;
+}
+
+.movie-seat-map-booking p {
+  margin: 6px 0 0;
+}
+
+.movie-seat-map-booking strong {
+  color: #f7cf72;
+}

@@ -1,0 +1,112 @@
+.movie-showtimes {
+  margin-block-start: 24px;
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid #2b2d38;
+  border-radius: 16px;
+  background: #191b23;
+  color: #f7f5ef;
+}
+
+.movie-showtimes h2 {
+  margin: 0 0 16px;
+  color: #f7f5ef;
+  font-size: 24px;
+}
+
+.movie-showtimes-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  margin-block-end: 20px;
+}
+
+.movie-showtimes-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.movie-showtimes button {
+  display: grid;
+  place-content: center;
+  gap: 3px;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid #454858;
+  border-radius: 8px;
+  background: #222430;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.movie-showtimes button span {
+  font-size: 12px;
+}
+
+.movie-showtimes button time {
+  font-weight: 700;
+}
+
+.movie-showtimes button:hover {
+  border-color: #f7c85a;
+}
+
+.movie-showtimes button[aria-pressed='true'] {
+  border-color: #f7c85a;
+  background: #f7c85a;
+  color: #111218;
+}
+
+.movie-showtimes button:focus-visible,
+.movie-showtimes select:focus-visible {
+  outline: 2px solid #f7c85a;
+  outline-offset: 3px;
+}
+
+.movie-showtimes-filter {
+  display: grid;
+  gap: 6px;
+  width: min(100%, 320px);
+  margin-block-end: 16px;
+}
+
+.movie-showtimes-filter select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding-inline: 12px;
+  border: 1px solid #454858;
+  border-radius: 8px;
+  background: #222430;
+  color: inherit;
+  font: inherit;
+}
+
+.movie-showtimes-cinema {
+  padding-block: 16px;
+  border-block-start: 1px solid #373945;
+  overflow-wrap: anywhere;
+}
+
+.movie-showtimes-cinema h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.movie-showtimes-cinema p {
+  margin: 0 0 12px;
+  color: #b7b9c6;
+  font-size: 14px;
+}
+
+.movie-showtimes-selection {
+  margin: 0;
+  color: #f7cf72;
+}
+
+@media (max-width: 560px) {
+  .movie-showtimes-days {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

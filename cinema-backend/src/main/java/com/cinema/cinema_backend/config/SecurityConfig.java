@@ -43,6 +43,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/movies/now-showing").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/movie-posters/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/movies/{movieId:[0-9]+}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/movies/{movieId:[0-9]+}/showtimes").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/movies/{movieId:[0-9]+}/showtimes/{showtimeId:[0-9]+}/seats").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.ignoringRequestMatchers(registerRequest, loginRequest))

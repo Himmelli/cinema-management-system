@@ -38,9 +38,7 @@
   min-height: 327px;
   padding: 23px 32px 32px;
   border-radius: 19px;
-  background:
-    linear-gradient(90deg, rgb(17 18 23 / 66%), rgb(17 18 23 / 76%)),
-    #21191a url('./cinespot-detail-backdrop.jpg') center / cover no-repeat;
+  background: linear-gradient(110deg, #26231e, #191b23 65%, #111217);
   font-family: 'DejaVu Sans', system-ui, sans-serif;
 }
 
@@ -180,5 +178,13 @@
   .movie-detail-meta,
   .movie-detail-description {
     font-size: 15px;
+  }
+}
+
+@media (width > 760px) {
+  .movie-detail-grid--inception {
+    background:
+      linear-gradient(90deg, rgb(17 18 23 / 60%), rgb(17 18 23 / 92%) 68%),
+      #191b23 url('/hero/inception-backdrop.jpg') center 55% / cover no-repeat;
   }
 }

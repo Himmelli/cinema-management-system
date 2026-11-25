@@ -312,4 +312,74 @@
   .cinespot-home .home-shell-template .home-movie-card > p {
     font-size: 12px;
   }
+
+
+.cinespot-home .home-movie-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-block-end: 20px;
+}
+
+.cinespot-home .home-movie-section-heading h1,
+.cinespot-home .home-shell-template .home-movie-section-heading h2 {
+  margin: 0;
+}
+
+.cinespot-home .home-movie-section-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding-inline: 14px;
+  border: 1px solid #373945;
+  border-radius: 999px;
+  background: #191b23;
+  color: #f7f5ef;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cinespot-home .home-movie-section-link::before {
+  color: #f7c85a;
+  font-size: 17px;
+  line-height: 1;
+  content: '←' / '';
+}
+
+.cinespot-home .home-movie-section-link[href$="?view=all"] {
+  border-color: #68532d;
+  background: #302719;
+  color: #f7cf72;
+}
+
+.cinespot-home .home-movie-section-link[href$="?view=all"]::before {
+  order: 1;
+  content: '→' / '';
+}
+
+.cinespot-home .home-movie-section-link:hover {
+  border-color: #f7c85a;
+  background: #3c301d;
+  color: #ffe3a0;
+}
+
+.cinespot-home .home-movie-section-link:focus-visible {
+  outline: 2px solid #f7c85a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .cinespot-home .home-movie-section-link {
+    gap: 6px;
+    padding-inline: 12px;
+    font-size: 13px;
+  }
 }

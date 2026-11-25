@@ -83,7 +83,7 @@ export default function CustomerLayout({ accountRole }: CustomerLayoutProps) {
       </header>
 
       <main className="customer-main">
-        <Outlet />
+        <Outlet context={{ accountRole }} />
       </main>
     </div>
   )

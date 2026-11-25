@@ -9,15 +9,41 @@
 
 .cinespot-featured {
   box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   min-height: 449px;
   margin-block-end: 36px;
   padding: 40px;
+  overflow: hidden;
   border-radius: 19px;
   color: #f7f5ef;
-  background: #33231e url('./cinespot-home-hero.jpg') center / cover no-repeat;
+  background: #191b23;
   font-family: 'DejaVu Sans', system-ui, sans-serif;
+}
+
+.cinespot-featured-poster {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.cinespot-featured::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(17 18 23 / 97%),
+    rgb(17 18 23 / 85%) 50%,
+    rgb(17 18 23 / 22%)
+  );
+  content: '';
 }
 
 .cinespot-featured-content {
@@ -110,6 +136,31 @@
   color: #f7f5ef;
 }
 
+@media (width > 760px) {
+  .cinespot-featured-poster {
+    inset: 24px 32px 24px auto;
+    width: min(30%, 270px);
+    height: calc(100% - 48px);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .cinespot-featured--has-poster .cinespot-featured-content {
+    max-width: 62%;
+  }
+
+  .cinespot-featured--inception::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgb(17 18 23 / 97%),
+        rgb(17 18 23 / 85%) 50%,
+        rgb(17 18 23 / 22%)
+      ),
+      url('/hero/inception-backdrop.jpg') center 55% / cover no-repeat;
+  }
+}
+
 @media (max-width: 760px) {
   .cinespot-home > .home-shell.home-shell-template {
     width: calc(100% - 32px);
@@ -121,9 +172,14 @@
     margin-block-end: 30px;
     padding: 26px 18px;
     border-radius: 13px;
-    background-image:
-      linear-gradient(90deg, rgb(17 18 23 / 54%), rgb(17 18 23 / 10%)),
-      url('./cinespot-home-hero.jpg');
+  }
+
+  .cinespot-featured::before {
+    background: linear-gradient(
+      90deg,
+      rgb(17 18 23 / 91%),
+      rgb(17 18 23 / 62%)
+    );
   }
 
   .cinespot-featured-badge {

@@ -34,4 +34,27 @@ public class SeatHold {
 
     protected SeatHold() {
     }
+
+    public SeatHold(Showtime showtime, Seat seat, User user, LocalDateTime expiredAt) {
+        this.showtime = showtime;
+        this.seat = seat;
+        assignTo(user, expiredAt);
+    }
+
+    public void assignTo(User user, LocalDateTime expiredAt) {
+        this.user = user;
+        this.expiredAt = expiredAt;
+    }
+
+    public Long getSeatId() {
+        return seat.getId();
+    }
+
+    public Long getUserId() {
+        return user.getId();
+    }
+
+    public LocalDateTime getExpiredAt() {
+        return expiredAt;
+    }
 }

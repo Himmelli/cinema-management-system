@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { apiHttp } from '../../api/http'
 import './MovieDetailPage.css'
+import MovieShowtimes from './MovieShowtimes'
 
 type MovieDetail = {
   id: number
@@ -98,12 +99,16 @@ function MovieDetails({ movieId }: { movieId: string }) {
 
   const { movie } = state
   const trailerLink = getTrailerLink(movie.trailerUrl)
+  const isInception = movie.title.trim().toLowerCase() === 'inception'
+  const detailClassName = isInception
+    ? 'movie-detail-grid movie-detail-grid--inception'
+    : 'movie-detail-grid'
 
   return (
     <>
       <MovieBreadcrumb title={movie.title} />
 
-      <article className="movie-detail-grid" aria-labelledby="movie-detail-title">
+      <article className={detailClassName} aria-labelledby="movie-detail-title">
         <div className="movie-detail-poster">
           {movie.posterUrl && !posterFailed ? (
             <img src={movie.posterUrl} alt="" onError={() => setPosterFailed(true)} />
@@ -141,6 +146,7 @@ function MovieDetails({ movieId }: { movieId: string }) {
           )}
         </div>
       </article>
+      <MovieShowtimes movieId={movie.id} />
     </>
   )
 }

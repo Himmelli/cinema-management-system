@@ -4,6 +4,8 @@ import { apiHttp } from '../../api/http'
 import './HomePage.css'
 import './HomeHero.css'
 
+const HOME_MOVIE_LIMIT = 5
+
 type NowShowingMovie = {
   id: number
   title: string
@@ -37,7 +39,15 @@ function MoviePoster({ url }: { url: string | null }) {
 
 function FeaturedMovie({ movie }: { movie: NowShowingMovie }) {
   const [details, setDetails] = useState<FeaturedDetails | null>(null)
+  const [posterFailed, setPosterFailed] = useState(false)
   const moviePath = `/movies/${movie.id}`
+  const hasPoster = Boolean(movie.posterUrl) && !posterFailed
+  const isInception = movie.title.trim().toLowerCase() === 'inception'
+  const heroClassName = [
+    'cinespot-featured',
+    hasPoster && 'cinespot-featured--has-poster',
+    isInception && 'cinespot-featured--inception',
+  ].filter(Boolean).join(' ')
 
   useEffect(() => {
     const controller = new AbortController()
@@ -59,7 +69,15 @@ function FeaturedMovie({ movie }: { movie: NowShowingMovie }) {
   }, [moviePath])
 
   return (
-    <section className="cinespot-featured" aria-labelledby="home-featured-title">
+    <section className={heroClassName} aria-labelledby="home-featured-title">
+      {hasPoster && (
+        <img
+          className="cinespot-featured-poster"
+          src={movie.posterUrl ?? undefined}
+          alt=""
+          onError={() => setPosterFailed(true)}
+        />
+      )}
       <div className="cinespot-featured-content">
         <p className="cinespot-featured-badge">Phim nổi bật</p>
         <h1 id="home-featured-title">{movie.title}</h1>
@@ -100,6 +118,11 @@ export default function HomePage() {
   const [searchParams] = useSearchParams()
   const [state, setState] = useState<HomeState>({ status: 'loading' })
   const query = searchParams.get('q')?.trim() ?? ''
+  const showAllMovies = !query && searchParams.get('view') === 'all'
+
+  useEffect(() => {
+    if (showAllMovies) window.scrollTo(0, 0)
+  }, [showAllMovies])
 
   useEffect(() => {
     const controller = new AbortController()
@@ -121,22 +144,33 @@ export default function HomePage() {
   }, [])
 
   const movies = state.status === 'success' ? state.movies : []
-  const featured = query ? undefined : movies[0]
+  const featured = query || showAllMovies ? undefined : movies[0]
+  const useTemplateLayout = Boolean(featured) || showAllMovies
+  const catalogMovies = featured ? movies.slice(0, HOME_MOVIE_LIMIT) : movies
   const visibleMovies = query
     ? movies.filter((movie) => movie.title.toLowerCase().includes(query.toLowerCase()))
-    : movies
+    : catalogMovies
 
   return (
     <div className="cinespot-home">
-      <div className={featured ? 'home-shell home-shell-template' : 'home-shell'}>
+      <div className={useTemplateLayout ? 'home-shell home-shell-template' : 'home-shell'}>
         {featured && <FeaturedMovie key={featured.id} movie={featured} />}
 
         <section className="home-now-showing">
-          {featured ? (
-            <h2>Phim đang chiếu</h2>
-          ) : (
-            <h1>{query ? 'Kết quả tìm kiếm' : 'Phim đang chiếu'}</h1>
-          )}
+          <div className="home-movie-section-heading">
+            {featured ? (
+              <h2>Phim đang chiếu</h2>
+            ) : (
+              <h1>{query ? 'Kết quả tìm kiếm' : 'Phim đang chiếu'}</h1>
+            )}
+
+            {featured && (
+              <Link className="home-movie-section-link" to="/?view=all">Xem tất cả</Link>
+            )}
+            {showAllMovies && (
+              <Link className="home-movie-section-link" to="/">Về trang chủ</Link>
+            )}
+          </div>
 
           {query && (
             <p className="home-search-summary">
